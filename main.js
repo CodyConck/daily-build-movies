@@ -35,7 +35,7 @@ function App() {
               {randomMovie ? (
                 <>
                   <h5 className="card-title">
-                    - {randomMovie.title || "No Title"}
+                    "{randomMovie.title || "No Title"}"
                   </h5>
                 </>
               ) : (
