@@ -9,24 +9,51 @@ function App() {
       const res = await fetch("https://api.sampleapis.com/movies/comedy");
       const data = await res.json();
       // update setMovies state with data
-      console.log(data);
       setMovies(data);
       //provide random index to generate random movie
       let randomIndex = Math.floor(Math.random() * data.length);
-      // update setRandomQuote state with data from randomeIndex
+      // update setRandomMovie state with data from randomIndex
       setRandomMovie(data[randomIndex]);
     }
     fetchData();
   }, []);
 
-  return <div>Hello</div>;
+  const getNewMovie = () => {
+    let posters = [""];
 
-  //   const getNewMovie = () => {
-  //     let randomIndex = Math.floor(Math.random() * quotes.length);
-  //     let moviePoster = data.posterURL;
-  //     setRandomMovie(quotes[randomIndex]);
-  //     setPoster(colors[moviePoster]);
-  //   };
+    let randomIndex = Math.floor(Math.random() * movies.length);
+    // let moviePoster = movies[posterURL];
+    setRandomMovie(movies[randomIndex]);
+    // setPoster(posters[moviePoster]);
+  };
+
+  return (
+    // <div style={{ backgroundImage: { poster }, minHeight: "100vh" }}>
+    <div className="container pt-5">
+      <div className="jumbotron">
+        <div className="card">
+          <div className="card-header">Random Movies</div>
+          <div className="card-body">
+            {randomMovie ? (
+              <>
+                <h5 className="card-title">
+                  - {randomMovie.title || "No Title"}
+                </h5>
+              </>
+            ) : (
+              <h2>Loading</h2>
+            )}
+            <div className="row">
+              <button onClick={getNewMovie} className="btn btn-primary">
+                New Random Movie
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    // </div>
+  );
 
   //   return (
   //     <div style={{ backgroundImage: { moviePoster }, minHeight: "100vh" }}>
