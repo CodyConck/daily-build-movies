@@ -2,6 +2,7 @@ function App() {
   const [movies, setMovies] = React.useState([]);
   const [randomMovie, setRandomMovie] = React.useState("");
   const [poster, setPoster] = React.useState("");
+  const [color, setColor] = React.useState("fff");
 
   React.useEffect(() => {
     // fetch data
@@ -19,13 +20,25 @@ function App() {
   }, []);
 
   const getNewMovie = () => {
+    const colors = [
+      "#16a085",
+      "#27ae60",
+      "#2c3e50",
+      "#e74c3c",
+      "#77B1A9",
+      "#73A857",
+      "#472E32",
+    ];
+
     let randomIndex = Math.floor(Math.random() * movies.length);
     setRandomMovie(movies[randomIndex]);
     setPoster(movies[randomIndex].posterURL);
+    let randomColorIndex = Math.floor(Math.random() * colors.length);
+    setColor(colors[randomColorIndex]);
   };
 
   return (
-    <div style={{ backgroundImage: `url(${poster})`, minHeight: "100vh" }}>
+    <div style={{ backgroundColor: color, minHeight: "100vh" }}>
       <div className="container pt-5">
         <div className="jumbotron">
           <div className="card">
