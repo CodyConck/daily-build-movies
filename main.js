@@ -21,8 +21,7 @@ function App() {
   const getNewMovie = () => {
     let randomIndex = Math.floor(Math.random() * movies.length);
     setRandomMovie(movies[randomIndex]);
-    let currentPoster = movies[randomIndex].posterURL;
-    setPoster(currentPoster);
+    setPoster(movies[randomIndex].posterURL);
   };
 
   return (
@@ -31,6 +30,7 @@ function App() {
         <div className="jumbotron">
           <div className="card">
             <div className="card-header">Random Movies</div>
+            <img className="card-img-top" src={poster} alt="Card image cap" />
             <div className="card-body">
               {randomMovie ? (
                 <>
