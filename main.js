@@ -15,6 +15,7 @@ function App() {
       let randomIndex = Math.floor(Math.random() * data.length);
       // update setRandomMovie state with data from randomIndex
       setRandomMovie(data[randomIndex]);
+      setPoster(data[randomIndex].posterURL);
     }
     fetchData();
   }, []);
