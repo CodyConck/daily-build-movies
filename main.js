@@ -40,7 +40,7 @@ function App() {
 
   return (
     <div style={{ backgroundColor: color, minHeight: "100vh" }}>
-      <div className="container pt-5">
+      <div className="container pt-3">
         <div className="jumbotron">
           <div className="card">
             <div className="card-header">Random Movies</div>
